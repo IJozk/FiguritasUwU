@@ -1,0 +1,137 @@
+@font-face{
+    font-family: "old japanese";
+    src: url('../fonts/Old_Japanese.otf') format("opentype");
+}
+
+@font-face{
+    font-family: "japanese_2020";
+    src: url('../fonts/JAPANESE_2020_ITALIC.otf') format("opentype");
+}
+
+
+#logoPag {
+    font-family: japanese_2020;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  background-color: rgb(203, 198, 236);
+}
+
+footer  {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: darkslateblue;
+    color: cyan;
+    text-align: center;
+    padding: 1% 0;
+    margin-top: 2%;
+}
+
+nav {
+    background-color: rgb(49, 49, 49);
+}
+
+#carousel1{
+    height: max-content;
+    background-color: rgb(49, 49, 49);
+  }
+
+.carousel-item > img{
+    align-self: flex-end;
+    max-width: max-content;
+    min-height: max-content; 
+  } 
+  
+  .card{
+    margin: 1%;
+    height: 90%;
+    width: auto; 
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    align-items: self-start;
+    padding: 0%;
+  }
+
+  .img_card > img{
+    max-height: 100%;
+    background-size: 100%;
+    background-color: darkgrey;
+    margin: auto;
+
+  }
+
+  .img_card{
+    max-height: 60%;
+    height: 60%;
+  }
+
+  #navId{
+    align-items: end;
+  }
+
+
+  #cattop{
+
+    margin-top: 1%;
+  }
+
+  #contenido{
+    padding-bottom: 1%;
+  }
+
+  .precio{
+    color: gray;
+    background-color: beige;
+  }
+
+  #bannerAnime, #bannerMDC{
+    font-family: japanese_2020;
+    color: aliceblue;
+    padding: 1% 2%;
+    -webkit-text-stroke: 3px black;
+    font-size: calc(7vw);
+  }
+  
+  #pago{
+    margin-top: 2vw;
+    background-color: aliceblue;
+  }
+
+  #cardPago{
+    max-height: 80%;
+  }
+
+  #cardPago img{
+    padding: 1vw;
+  }
+
+  h4{
+    font-size: 1.8vw;
+  }
+  
+  @media screen and (min-width: 1000px) {
+    .cont_tabla{
+      font-size: 1.5vw;
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    .cont_tabla{
+      font-size: 2vw;
+    }
+  }
+  @media screen and (max-width: 800px) {
+    .cont_tabla{
+      font-size: 3vw;
+    }
+  }
+
+  #det_comp{
+    margin-top: 2vw;
+  }

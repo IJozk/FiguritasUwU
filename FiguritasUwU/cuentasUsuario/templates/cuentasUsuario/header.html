@@ -1,0 +1,131 @@
+{% load static %}
+
+
+<div class="row">
+    <div class="col">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" id="logoPag" href="{% url 'index' %}"><img src="{% static 'images/iconoSinFondo.ico' %}" alt="none"
+              style="max-height: 25px;"> FiguritasUwU</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                  aria-haspopup="true" aria-expanded="false">Categorias</a>
+                <div class="dropdown-menu">
+                  <p style="text-align: left; padding-left: 5%;"> <a href="figuras.html">Figuras</a> </p>
+                  <a class="dropdown-item" href="{% url 'anime' %}">Figuras anime</a>
+                  <a class="dropdown-item" href="{% url 'marvelDc' %}">Figuras Marvel</a>
+                  <div class="dropdown-divider"></div>
+                  <p style="text-align: left; padding-left: 5%;"> <a href="comicsymangas.html">Mangas y comic</a>
+                  </p>
+                  <a class="dropdown-item" href="{% url 'manga' %}">Mangas</a>
+                  <a class="dropdown-item" href="{% url 'comic' %}">Comic</a>
+                </div>
+              </li>
+              <li class="nav-item">
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"></a>
+              </li>
+            </ul>
+            <span class="navbar-text" style="padding-inline: 1%;">
+              <a href="{% url 'admin:index' %}" class="nav-link" >Intranet</a>
+            </span>
+            <span class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                aria-haspopup="true" aria-expanded="false">Ingresar</a>
+              <div class="dropdown-menu">
+                <form class="px-4 py-3 needs-validation" action="index_logeado.html" novalidate>
+                  <div class="form-group">
+                    <label for="exampleDropdownFormEmail1">Correo</label>
+                    <input type="email" class="form-control" id="exampleDropdownFormEmail1"
+                      placeholder="email@example.com" required>
+                    <div class="valid-feedback">
+                      Correcto
+                    </div>
+                    <div class="invalid-feedback">
+                      Es Necesario poner su E-mail
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleDropdownFormPassword1">Contraseña</label>
+                    <input type="password" class="form-control" id="exampleDropdownFormPassword1"
+                      placeholder="Password" required>
+                    <div class="valid-feedback">
+                      Correcto
+                    </div>
+                    <div class="invalid-feedback">
+                      Ingrese la contraseña correcta
+                    </div>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                    <label class="form-check-label" for="dropdownCheck">
+                      Recordar datos
+                    </label>
+
+                  </div>
+                  <a href="index_logeado.html">
+                    <button type="submit" class="btn btn-primary">Iniciar </button>
+                  </a>
+                </form>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="formulario.html">Crear cuenta</a>
+                <a class="dropdown-item" href="rec_cuenta.html">¿Olvidate la contraseña?</a>
+              </div>
+            </span>
+            <span class="navbar-text">
+              <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#Id2"
+                aria-controls="Id2">
+                Carrito
+              </button>
+            </span>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <div class="offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="Id2"
+    aria-labelledby="staticBackdropLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="staticBackdropLabel">Carrito de compra</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div>
+
+        {% include 'pedidos/carrito_compra.html' %}
+
+
+        <footer>
+          <div class="row">
+            <div class="col-5">
+              <p style="color: aliceblue;">Total:</p>
+            </div>
+            <div class="col-5">
+              <p style="color: aliceblue;">$5.000</p>
+            </div>
+          </div>
+          <div class="row">
+            <a class="btn btn-primary btn-sm "
+              style="background-color:rgb(199, 159, 250); border-color: blueviolet; " href="pago.html"
+              role="button">Pagar</a>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- (Optional) - Place this js code after initializing bootstrap.min.js or bootstrap.bundle.min.js -->
+  <script>
+    var triggerEl = document.querySelector('#navId a')
+    bootstrap.Tab.getInstance(triggerEl).show() // Select tab by name
+  </script>
+

@@ -1,0 +1,12 @@
+body {
+    background-image: url('images.jpg');
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: darkslateblue;
+    background-size: cover;
+}
+/*
+@media only screen and (min-width: 1400px) {
+    body {
+        background-image: url('images.jpg');
+    }
+}
