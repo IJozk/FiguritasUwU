@@ -4,4 +4,5 @@ from cuentasUsuario import views
 
 urlpatterns = [
     path('index/', views.index, name='index'),
+    path('formcli/', views.cliente, name='formcli'),
 ]
