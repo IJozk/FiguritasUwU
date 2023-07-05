@@ -1,0 +1,63 @@
+{% extends 'cuentasUsuario/base.html' %}
+
+{% load static %}
+
+{% block title %} 
+- Comics
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col" id="cattop">
+      <p><a href="figuras.html">Figuras</a>/<a href="anime.html">Anime</a></p>
+    </div>
+  </div>
+
+  <div class="row" id="contenido">
+    <div class="col-xl-8" id="contenido">
+      <h1>Poster Shimuelo</h1>
+      <div class="row">
+        <img src="images/Chimuelo.webp" alt="">
+      </div>
+    </div>
+    <div class="col-xl-4">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">
+              <h1>Caracteristicas:</h1>
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <th>Dimensiones:</th>
+            <th>30 cm.</th>
+          </tr>
+          <tr>
+            <th>Marca:</th>
+            <th>BANDIO.</th>
+          </tr>
+          <tr>
+            <th>Materiales:</th>
+            <th>Caucho.</th>
+          </tr>
+          <tr>
+            <th>
+              <h1 class="precio">Precio:</h1>
+            </th>
+            <th>
+              <h1 class="precio">$5.000</h1>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+      <a class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#Id2"
+        aria-controls="Id2"> Agregar al carrito</a>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}

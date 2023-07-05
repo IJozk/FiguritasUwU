@@ -35,3 +35,11 @@ def otros(request):
 
     return render(request, 'productos/otros.html', {"productos":productos, })
 
+
+def producto(request, nombre):
+
+    producto = Producto.objects.filter(producto__nombre=nombre)
+
+    return render(request, 'productos/producto.html', {"productos":producto, })
+
+
