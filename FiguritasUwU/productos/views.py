@@ -35,3 +35,10 @@ def otros(request):
 
     return render(request, 'productos/otros.html', {"productos":productos, })
 
+
+
+def producto(request, idprod):
+
+    producto = Producto.objects.get(id=idprod)
+
+    return render(request, 'productos/producto.html', {"producto":producto, })

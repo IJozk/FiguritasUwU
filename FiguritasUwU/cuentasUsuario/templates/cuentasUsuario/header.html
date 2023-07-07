@@ -5,7 +5,7 @@
     <div class="col">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" id="logoPag" href="{% url 'index' %}"><img src="{% static 'images/iconoSinFondo.ico' %}" alt="none"
+          <a class="navbar-brand" id="logoPag" href="{% url 'index' %}"><img src="{% static 'cuentasUsuario/images/iconoSinFondo.ico' %}" alt="none"
               style="max-height: 25px;"> FiguritasUwU</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,14 +17,15 @@
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
                   aria-haspopup="true" aria-expanded="false">Categorias</a>
                 <div class="dropdown-menu">
-                  <p style="text-align: left; padding-left: 5%;"> <a href="figuras.html">Figuras</a> </p>
+                  <p style="text-align: left; padding-left: 5%;"> <strong>Figuras</strong> </p>
                   <a class="dropdown-item" href="{% url 'anime' %}">Figuras anime</a>
                   <a class="dropdown-item" href="{% url 'marvelDc' %}">Figuras Marvel</a>
                   <div class="dropdown-divider"></div>
-                  <p style="text-align: left; padding-left: 5%;"> <a href="comicsymangas.html">Mangas y comic</a>
-                  </p>
+                  <p style="text-align: left; padding-left: 5%;"> <strong>Mangas y comic</strong></p>
                   <a class="dropdown-item" href="{% url 'manga' %}">Mangas</a>
                   <a class="dropdown-item" href="{% url 'comic' %}">Comic</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="{% url 'otros' %}">Otros</a>
                 </div>
               </li>
               <li class="nav-item">
@@ -91,36 +92,9 @@
     </div>
   </div>
 
-  <div class="offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="Id2"
-    aria-labelledby="staticBackdropLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="staticBackdropLabel">Carrito de compra</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <div>
 
-        {% include 'pedidos/carrito_compra.html' %}
+  {% include 'pedidos/carrito_compra.html' %}
 
-
-        <footer>
-          <div class="row">
-            <div class="col-5">
-              <p style="color: aliceblue;">Total:</p>
-            </div>
-            <div class="col-5">
-              <p style="color: aliceblue;">$5.000</p>
-            </div>
-          </div>
-          <div class="row">
-            <a class="btn btn-primary btn-sm "
-              style="background-color:rgb(199, 159, 250); border-color: blueviolet; " href="pago.html"
-              role="button">Pagar</a>
-          </div>
-        </footer>
-      </div>
-    </div>
-  </div>
 
 
   <!-- (Optional) - Place this js code after initializing bootstrap.min.js or bootstrap.bundle.min.js -->
