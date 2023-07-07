@@ -1,17 +1,12 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
 
-class FormularioNuevoCliente(forms.Form):
-
-    nombreUsuario=forms.CharField()
-    nombre=forms.CharField()
-    apellido=forms.CharField()
-    email=forms.EmailField()
-    contrasenia=forms.CharField(widget=forms.PasswordInput)
-    direccion = forms.CharField()
-    telefono = forms.CharField()
-    ciudad = forms.CharField()
-    pais =forms.CharField()
+class FormularioNuevoCliente(UserCreationForm):
+    pass
 
 
 
-    
+class FormularioModCliente(UserCreationForm):
+    username=forms.CharField(disabled=True)
+    password=forms.CharField(widget=forms.PasswordInput)
+    pass

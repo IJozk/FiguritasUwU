@@ -28,6 +28,9 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+LOGIN_REDIRECT_URL='/index/'
+LOGOUT_REDIRECT_URL='/index/'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,7 +43,14 @@ INSTALLED_APPS = [
     'cuentasUsuario',
     'pedidos',
     'productos',
+    'crispy_forms',
+    'crispy_bootstrap5',
+    'django.contrib.humanize',
+
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -57,7 +67,7 @@ ROOT_URLCONF = 'FiguritasUwU.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/FiguritasUwU/pedidos/static',],
+        'DIRS': ['./templates','/FiguritasUwU/pedidos/static',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

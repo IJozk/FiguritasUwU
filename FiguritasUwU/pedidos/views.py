@@ -3,6 +3,9 @@ from .models import Pedido, detallePedido
 from productos.models import Producto
 from pedidos.carro import Carro
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
+from .forms import pedidoForm, detallePedidoForm
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -37,3 +40,18 @@ def limpiarCarro(request, pagactual):
     carro=Carro(request)
     carro.limpiar_carro()
     return redirect(pagactual)
+
+def nuevoPedido(request, productos, cantidad):
+    pedido=Pedido(User.username, 'direccion x', "P")
+    data={
+            'productos':productos
+        }
+    for prod in productos:
+            detalle=detallePedido(prod.id, pedido.id, cantidad)
+
+
+    if request.method == 'POST':
+                pedido.save()
+                detalle.save()
+
+    return render(request, 'pedidos/confirmarPedido.html',data)

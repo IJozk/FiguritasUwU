@@ -1,0 +1,48 @@
+{% extends 'cuentasUsuario/base.html' %}
+
+{% load static %}
+
+{% block title %} 
+- Tabla clientes
+{% endblock %}
+
+
+{% block content %}
+
+
+    <div class="table-responsive" >
+        <table class="table table-primary">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre usuario</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Numero telefónico</th>
+                    <th scope="col"> </th>
+                    <th scope="col"> </th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for m in clientes %}
+
+                <tr class="">
+                    <td scope="row">{{m.username}}</td>
+                    <td>{{m.email}}</td>
+                    <td>{{m.lastname}}</td>
+                    <td></td>
+                    <td><a name="" id="" class="btn btn-primary" href="{% url 'eliminarCli' m.username %}" role="button">Eliminar</a></td>
+                    <td><a name="" id="" class="btn btn-primary" href="{% url 'modCli' m.username %}" role="button">Modificar</a></td>
+                </tr>
+                {% endfor %}
+                <td><a name="" id="" class="btn btn-success" href="{% url 'formcli' %}" role="button">+</a></td>
+            </tbody>
+        </table>
+    </div>
+
+    
+    
+
+    
+
+{% endblock %}

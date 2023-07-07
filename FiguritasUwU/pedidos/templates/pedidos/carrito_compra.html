@@ -36,19 +36,32 @@
           </li>
         {% endfor %}
           <li>
-              <div class="container-fluid" style="padding: 1vw; height: 10vw; background-color: blueviolet; ">
+              <div class="container-fluid" style="padding: 1vw; height: 20vw; background-color: rgb(210, 189, 230); ">
                 <div class="row">
                   <div class="col-5">
                     <p style="color: aliceblue;">Total:</p>
                   </div>
                   <div class="col-5">
+                    {% if user.is_authenticated %}
                     <p style="color: aliceblue;">${{ total_carro }}</p>
+                    {% else %}
+
+                  <p style="color: white;">No disponible. </p>
+
+                  {% endif %}
                   </div>
                 </div>
                 <div class="row" style="text-align: center;">
-                  <a class="btn btn-primary btn-sm "
-                    style="background-color:rgb(199, 159, 250); border-color: blueviolet; width: 50%; " href="pago.html"
+                  {% if user.is_authenticated %}
+                  <a class="btn btn-primary btn-sm " method="post"
+                    style="background-color:rgb(199, 159, 250); border-color: blueviolet; width: 50%; " href="#"
                     role="button">Pagar</a>
+                  {% else %}
+
+                  <p style="color: white;">Debes ingresar con una cuenta de usuario para realizar el pago.
+                  <a href="{% url 'login' %}">Logear</a></p>
+
+                  {% endif %}
                     <a name="" id="" class="btn btn-danger" href="{% url 'carro:limpiar' 'index' %}" role="button">Limpiar</a>
                 </div>
               </div>

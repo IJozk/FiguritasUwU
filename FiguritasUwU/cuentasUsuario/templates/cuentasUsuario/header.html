@@ -30,54 +30,36 @@
               </li>
               <li class="nav-item">
               </li>
+              {% if user.is_authenticated and user.is_superuser %}
               <li class="nav-item">
-                <a class="nav-link" href="#"></a>
+                <a class="nav-link" href="{% url 'tablaCli' %}">Usuarios</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'listar_productos' %}">Productos</a>
+              </li>
+              {% endif %}
             </ul>
+            {% if user.is_authenticated and user.is_superuser %}
             <span class="navbar-text" style="padding-inline: 1%;">
               <a href="{% url 'admin:index' %}" class="nav-link" >Intranet</a>
             </span>
+            {% endif %}
             <span class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                aria-haspopup="true" aria-expanded="false">Ingresar</a>
+                aria-haspopup="true" aria-expanded="false">{% if user.is_authenticated %}
+                {{user.username}}
+                {% else %}
+                  Cuenta
+                {% endif %}
+              
+              </a>
               <div class="dropdown-menu">
-                <form class="px-4 py-3 needs-validation" action="index_logeado.html" novalidate>
-                  <div class="form-group">
-                    <label for="exampleDropdownFormEmail1">Correo</label>
-                    <input type="email" class="form-control" id="exampleDropdownFormEmail1"
-                      placeholder="email@example.com" required>
-                    <div class="valid-feedback">
-                      Correcto
-                    </div>
-                    <div class="invalid-feedback">
-                      Es Necesario poner su E-mail
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleDropdownFormPassword1">Contraseña</label>
-                    <input type="password" class="form-control" id="exampleDropdownFormPassword1"
-                      placeholder="Password" required>
-                    <div class="valid-feedback">
-                      Correcto
-                    </div>
-                    <div class="invalid-feedback">
-                      Ingrese la contraseña correcta
-                    </div>
-                  </div>
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                    <label class="form-check-label" for="dropdownCheck">
-                      Recordar datos
-                    </label>
-
-                  </div>
-                  <a href="index_logeado.html">
-                    <button type="submit" class="btn btn-primary">Iniciar </button>
-                  </a>
-                </form>
-                <div class="dropdown-divider"></div>
+                {% if user.is_authenticated %}
+                <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                {% else %}
+                <a class="dropdown-item" href="{% url 'login' %}">Login</a>
                 <a class="dropdown-item" href="{% url 'formcli' %}">Crear cuenta</a>
-                <a class="dropdown-item" href="rec_cuenta.html">¿Olvidate la contraseña?</a>
+                {% endif %}
               </div>
             </span>
             <span class="navbar-text">
