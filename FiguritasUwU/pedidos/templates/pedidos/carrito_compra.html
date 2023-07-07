@@ -1,25 +1,75 @@
 
 {% load static %}
 
-<ul>
+<div class="offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="Id2" aria-labelledby="staticBackdropLabel">
 
-  {% for m in prod_pedido %}
-  <li>
-    <div class="card mb-3" style="max-width: 540px;">
-      <div class="row no-gutters">
-        <div class="col-md-4">
-          <img src="{{m.imagen.url}}" class="card-img" alt="...">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">{{m.nombre}}</h5>
-            <p class="card-text">${{m.precio}} </p>
-            <p class="card-text"><small class="text-muted">cant: 1</small></p>
-          </div>
-        </div>
+  <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="staticBackdropLabel">Carrito de compra</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body" >
+    <div class="container-fluid" style="height: 100vw; overflow-y: auto;">
+    <ul style="list-style: none;">
+      {% if request.session.carro.items %}
+        {% for key, value in request.session.carro.items %}
+          <li>
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row no-gutters">
+                  <div class="col-md-4">
+                    <img src="{{value.imagen}}" class="card-img" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">{{value.nombre}}</h5>
+                      <p class="card-text">${{value.precio}} </p>
+                      <p class="card-text"><small class="text-muted">cant: {{value.cantidad}}</small></p>
+                      <p class="card-text">${{value.subtotal}} </p>
+                    </div>
+                  </div>
+                  <div class="col" style="display: inline;">
+                    <a name="" id="" class="btn btn-danger" href="{% url 'carro:eliminar' value.producto_id 'index' %}" role="button">X</a>
+                    <a name="" id="" class="btn btn-success" href="{% url 'carro:agregar' value.producto_id 'index' %}" role="button">+1</a>
+                    <a name="" id="" class="btn btn-danger" href="{% url 'carro:restar' value.producto_id 'index' %}" role="button">-1</a>
+                  </div>
+                </div>
+              </div>
+          </li>
+        {% endfor %}
+          <li>
+              <div class="container-fluid" style="padding: 1vw; height: 10vw; background-color: blueviolet; ">
+                <div class="row">
+                  <div class="col-5">
+                    <p style="color: aliceblue;">Total:</p>
+                  </div>
+                  <div class="col-5">
+                    <p style="color: aliceblue;">${{ total_carro }}</p>
+                  </div>
+                </div>
+                <div class="row" style="text-align: center;">
+                  <a class="btn btn-primary btn-sm "
+                    style="background-color:rgb(199, 159, 250); border-color: blueviolet; width: 50%; " href="pago.html"
+                    role="button">Pagar</a>
+                    <a name="" id="" class="btn btn-danger" href="{% url 'carro:limpiar' 'index' %}" role="button">Limpiar</a>
+                </div>
+              </div>
+          </li>
+    </ul>
+        {% else %}
+            <tr>
+
+              <td>
+                <div class="alert alert-danger text-center">
+                  <p>No hay articulos en el carro</p>
+                </div>  
+              </td>
+
+            </tr>
+        
+        {% endif %}
+
       </div>
     </div>
-  </li>
-  {% endfor %}
+</div>
+  
 
-</ul>
+

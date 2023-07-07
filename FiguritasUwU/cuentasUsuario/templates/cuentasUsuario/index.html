@@ -20,13 +20,13 @@
         </ol>
         <div class="carousel-inner" role="listbox">
           <div class="carousel-item active">
-            <img src="{% static 'images/rengoku.jpg' %}" class="mx-auto w-100 d-block" alt="First slide">
+            <img src="{% static 'cuentasUsuario/images/rengoku.jpg' %}" class="mx-auto w-100 d-block" alt="First slide">
           </div>
           <div class="carousel-item">
-            <img src="{% static 'images/figura2.jpeg' %}" class="mx-auto w-100 d-block" alt="Second slide">
+            <img src="{% static 'cuentasUsuario/images/figura2.jpeg' %}" class="mx-auto w-100 d-block" alt="Second slide">
           </div>
           <div class="carousel-item">
-            <img src="{% static 'images/figura3.jpg' %}" class="mx-auto w-100 d-block" alt="Third slide">
+            <img src="{% static 'cuentasUsuario/images/figura3.jpg' %}" class="mx-auto w-100 d-block" alt="Third slide">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carousel1" data-bs-slide="prev">
@@ -57,14 +57,13 @@
 
       <div class="card">
         <div class="img_card">
-          <img src="{% static 'images/Chimuelo.webp' %}" class="card-img-top" alt="...">
+          <img src="{% static 'cuentasUsuario/images/Chimuelo.webp' %}" class="card-img-top" alt="...">
         </div>
         <div class="card-body">
-          <h5 class="card-title"><a href="producto001.html">Poster Shimuelo</a></h5>
+          <h5 class="card-title"><a href="{% url 'producto' 1 %}">Poster Shimuelo</a></h5>
           <h6 class="card-subtitle mb-2 text-muted "> $5.000 </h6>
           <p class="card-text">Dimensiones: 50X30 <br>Marca: Chancho <br> Materiales: papel confort</p>
-          <a class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#Id2"
-            aria-controls="Id2"> Agregar al carrito</a>
+          <a class="btn btn-sm btn-success" type="button" href="{% url 'carro:agregar' 1 'index' %}"> Agregar al carrito</a>
         </div>
       </div>
 
@@ -74,14 +73,13 @@
     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-6">
 
       <div class="card">
-        <div class="img_card"><img src="{% static 'images/GokuSS4.JPG' %}" class="card-img-top" alt="..."></div>
+        <div class="img_card"><img src="{% static 'cuentasUsuario/images/GokuSS4.JPG' %}" class="card-img-top" alt="..."></div>
 
         <div class="card-body">
-          <h5 class="card-title"> <a href="producto002.html">Kokun SS4</a> </h5>
+          <h5 class="card-title"> <a href="{% url 'producto' 2 %}">Kokun SS4</a> </h5>
           <h6 class="card-subtitle mb-2 text-muted "> $70.000 </h6>
           <p class="card-text"> Altura: 30cm <br>Marca: EMPRESTAME <br> Materiales: Caucho </p>
-          <a class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#Id2"
-            aria-controls="Id2"> Agregar al carrito</a>
+          <a class="btn btn-sm btn-success" type="button" href="{% url 'carro:agregar' 2 'index' %}"> Agregar al carrito</a>
         </div>
       </div>
 
@@ -91,14 +89,17 @@
 
       <div class="card">
         <div class="img_card">
-          <img src="{% static 'images/RimuruTempest.JPG' %}" class="card-img-top" alt="...">
+          <img src="{% static 'cuentasUsuario/images/RimuruTempest.JPG' %}" class="card-img-top" alt="...">
         </div>
         <div class="card-body">
+<<<<<<< HEAD
           <h5 class="card-title"> <a href="">Rimuru Tempest</a> </h5>
+=======
+          <h5 class="card-title"> <a href="{% url 'producto' 3 %}">Rimuru Tempest</a> </h5>
+>>>>>>> ramajorge
           <h6 class="card-subtitle mb-2 text-muted "> $40.000 </h6>
           <p class="card-text"> Altura: 25cm <br>Marca: EMPRESTAME <br> Materiales: Tolueno </p>
-          <a class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#Id2"
-            aria-controls="Id2"> Agregar al carrito</a>
+          <a class="btn btn-sm btn-success" type="button" href="{% url 'carro:agregar' 3 'index' %}"> Agregar al carrito</a>
         </div>
       </div>
 
@@ -108,14 +109,13 @@
 
       <div class="card">
         <div class="img_card">
-          <img src="{% static 'images/GogetaSSB.JPG' %}" class="card-img-top" alt="...">
+          <img src="{% static 'cuentasUsuario/images/GogetaSSB.JPG' %}" class="card-img-top" alt="...">
         </div>
         <div class="card-body">
-          <h5 class="card-title"> <a href="producto004.html">GogetaSSB</a> </h5>
+          <h5 class="card-title"> <a href="{% url 'producto' 4 %}">GogetaSSB</a> </h5>
           <h6 class="card-subtitle mb-2 text-muted "> $50.000 </h6>
           <p class="card-text"> Altura: 25cm <br>Marca: EMPRESTAME <br> Materiales: Tolueno </p>
-          <a class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#Id2"
-            aria-controls="Id2"> Agregar al carrito</a>
+          <a class="btn btn-sm btn-success" type="button" href="{% url 'carro:agregar' 4 'index' %}"> Agregar al carrito</a>
         </div>
       </div>
 
@@ -126,3 +126,40 @@
 </div>
 {% endblock %}
 
+
+
+
+
+
+
+
+<div class="row" style="margin-top: 3%; margin-bottom: 1%;">
+  <div class="col" >
+    <h1 id="bannerAnime" style="background-image: url({% static 'productos/images/cover.1457307.2400x600.jpg' %});" ></i>Anime</h1> 
+  </div>
+  
+  
+  </div>
+  
+    <div class="row">
+    {% for m in productos %}
+      {% with pagactual='anime' %}
+      <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-6">
+  
+        <div class="card" >
+          <div class="img_card">
+            <img src="{{m.imagen.url}}" class="card-img-top" alt="...">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><a href="{% url 'producto' m.id %}">{{m.nombre}}</a></h5>
+            <h6 class="card-subtitle mb-2 text-muted "> ${{m.precio}} </h6>
+            <p class="card-text"> {{m.descripcion}} <br>Marca: {{m.marca}}</p>
+            <a class="btn btn-sm btn-success" type="button" href="{% url 'carro:agregar' m.id pagactual %}"> Agregar al carrito</a>
+          </div>
+        </div>
+  
+      </div>
+      {% endwith %}
+  
+    {% endfor %}
+    </div>

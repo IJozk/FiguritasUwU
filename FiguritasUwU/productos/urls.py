@@ -7,5 +7,5 @@ urlpatterns = [
     path('comic/', comic , name='comic'),
     path('manga/', manga , name='manga'),
     path('otros/', otros , name='otros'),
-    path('producto/<nombre>/', producto, name="producto")
+    path('producto/<int:idprod>/', producto, name='producto'),
 ]

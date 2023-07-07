@@ -36,10 +36,10 @@ def otros(request):
     return render(request, 'productos/otros.html', {"productos":productos, })
 
 
-def producto(request, nombre):
 
-    producto = Producto.objects.filter(producto__nombre=nombre)
+def producto(request, idprod):
 
-    return render(request, 'productos/producto.html', {"productos":producto, })
+    producto = Producto.objects.get(id=idprod)
 
+    return render(request, 'productos/producto.html', {"producto":producto, })
 

@@ -26,10 +26,10 @@
           <img src="{{m.imagen.url}}" class="card-img-top" alt="...">
         </div>
         <div class="card-body">
-          <h5 class="card-title"><a href="producto009.html">{{m.nombre}}</a></h5>
+          <h5 class="card-title"><a href="{% url 'producto' m.id %}">{{m.nombre}}</a></h5>
           <h6 class="card-subtitle mb-2 text-muted "> ${{m.precio}} </h6>
           <p class="card-text"> {{m.descripcion}} <br>Marca: {{m.marca}}</p>
-          <a class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#Id2" aria-controls="Id2"> Agregar al carrito</a>
+          <a class="btn btn-sm btn-success" type="button" href="{% url 'carro:agregar' m.id 'otros' %}"> Agregar al carrito</a>
         </div>
       </div>
 

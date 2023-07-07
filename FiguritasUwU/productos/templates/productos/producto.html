@@ -3,11 +3,16 @@
 {% load static %}
 
 {% block title %} 
+<<<<<<< HEAD
 - Comics
+=======
+- Figuritas Anime
+>>>>>>> ramajorge
 {% endblock %}
 
 {% block content %}
 
+<<<<<<< HEAD
 <div class="row">
     <div class="col" id="cattop">
       <p><a href="figuras.html">Figuras</a>/<a href="anime.html">Anime</a></p>
@@ -19,6 +24,24 @@
       <h1>Poster Shimuelo</h1>
       <div class="row">
         <img src="images/Chimuelo.webp" alt="">
+=======
+<div class="row" style="margin-top: 3%; margin-bottom: 1%;">
+<div class="col" >
+  <h1 id="bannerAnime" href="" ></i>{{producto.categoria}}</h1> 
+</div>
+
+
+</div>
+
+  <div class="row">
+  {% if producto %}
+    
+  <div class="row" id="contenido">
+    <div class="col-xl-8" id="contenido">
+      <h1>{{producto.nombre}}</h1>
+      <div class="row">
+        <img src="{{producto.imagen.url}}" alt="">
+>>>>>>> ramajorge
       </div>
     </div>
     <div class="col-xl-4">
@@ -33,6 +56,7 @@
 
         <tbody>
           <tr>
+<<<<<<< HEAD
             <th>Dimensiones:</th>
             <th>30 cm.</th>
           </tr>
@@ -43,17 +67,38 @@
           <tr>
             <th>Materiales:</th>
             <th>Caucho.</th>
+=======
+            <th>
+                <h1 class="desc">Descripcion:</h1>
+            </th>
+            <th>
+                {{producto.descripcion}}
+            </th>
+          </tr>
+          <tr>
+            <th>
+                <h1 class="marca">Marca:</h1>
+            </th>
+            <th>
+                {{producto.marca}}
+            </th>
+>>>>>>> ramajorge
           </tr>
           <tr>
             <th>
               <h1 class="precio">Precio:</h1>
             </th>
             <th>
+<<<<<<< HEAD
               <h1 class="precio">$5.000</h1>
+=======
+              <h1 class="precio">${{producto.precio}}</h1>
+>>>>>>> ramajorge
             </th>
           </tr>
         </tbody>
       </table>
+<<<<<<< HEAD
       <a class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#Id2"
         aria-controls="Id2"> Agregar al carrito</a>
     </div>
@@ -61,3 +106,16 @@
 </div>
 </div>
 {% endblock %}
+=======
+      <a class="btn btn-sm btn-success" type="button" href="{% url 'carro:agregar' producto.id 'index' %}"> Agregar al carrito</a>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+  {% endif %}
+  </div>
+    
+{% endblock %}
+>>>>>>> ramajorge
