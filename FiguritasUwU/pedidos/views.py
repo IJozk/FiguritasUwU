@@ -6,6 +6,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from .forms import pedidoForm, detallePedidoForm
 from django.contrib.auth.models import User
+from django.contrib import messages
 
 # Create your views here.
 
@@ -41,17 +42,22 @@ def limpiarCarro(request, pagactual):
     carro.limpiar_carro()
     return redirect(pagactual)
 
-def nuevoPedido(request, productos, cantidad):
-    pedido=Pedido(User.username, 'direccion x', "P")
-    data={
-            'productos':productos
-        }
-    for prod in productos:
-            detalle=detallePedido(prod.id, pedido.id, cantidad)
+@login_required
+def nuevoPedido(request):
+    pedido=Pedido.objects.create(cliente=request.user)
+    carro=Carro(request)
+    detalle_pedido=list()
+    for key, value in carro.carro.items():
+        detalle_pedido.append(detallePedido(
 
+            producto=Producto.objects.get(id=value['producto_id']),
+            cant=value['cantidad'],
+            idpedido = pedido
 
-    if request.method == 'POST':
-                pedido.save()
-                detalle.save()
+        ))
 
-    return render(request, 'pedidos/confirmarPedido.html',data)
+    detallePedido.objects.bulk_create(detalle_pedido)
+
+    messages.success(request, "El pedido se ha creado con exito")
+
+    return render(request, 'pedidos/confirmarPedido.html', {"pedido":pedido, "detalle_pedido":detalle_pedido,})

@@ -1,6 +1,7 @@
 from django.db import models
 from productos.models import Producto
 from django.contrib.auth import get_user_model
+from django.db.models import F, Sum, FloatField
 
 
 # Create your models here.
@@ -23,7 +24,10 @@ class Pedido(models.Model):
     
     @property
     def total(self):
-        pass
+        return self.detallePedido_set.aggregate(
+
+            total=Sum(F("precio")*F("cantidad"), output_field=FloatField())
+        )["total"]
 
     class Meta:
         db_table='pedidos'
@@ -38,3 +42,11 @@ class detallePedido(models.Model):
     idpedido = models.ForeignKey(Pedido, on_delete=models.PROTECT)
     cant = models.IntegerField(default=1)
    
+    def __str__(self):
+        return f'{self.cant} unidades de {self.producto.nombre}'
+    
+    class Meta:
+        db_table='detalles'
+        verbose_name="detalle"
+        verbose_name_plural='detalles'
+        ordering=['id']

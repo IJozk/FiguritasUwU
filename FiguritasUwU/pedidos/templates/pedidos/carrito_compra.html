@@ -54,7 +54,7 @@
                 <div class="row" style="text-align: center;">
                   {% if user.is_authenticated %}
                   <a class="btn btn-primary btn-sm " method="post"
-                    style="background-color:rgb(199, 159, 250); border-color: blueviolet; width: 50%; " href="#"
+                    style="background-color:rgb(199, 159, 250); border-color: blueviolet; width: 50%; " href="{% url 'carro:nuevoPedido' %}"
                     role="button">Pagar</a>
                   {% else %}
 
